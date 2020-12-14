@@ -2,7 +2,7 @@ spring:
   application:
     name: client
   datasource:
-    password: root
+    password: 1234qwer
     url: jdbc:mysql://client-db-1-mysql/client?allowPublicKeyRetrieval=true&sslMode=DISABLED&useSSL=false&serverTimezone=UTC
     username: root
   jpa:
