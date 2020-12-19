@@ -1,22 +1,14 @@
 package com.teammacc.client.controller
 
-import org.springframework.web.bind.annotation.RestController
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.beans.factory.annotation.Autowired
-
-import org.springframework.web.bind.annotation.GetMapping
-
-import org.springframework.web.bind.annotation.PostMapping
-import javax.validation.Valid
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.PutMapping
-import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.http.HttpStatus
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.ResponseEntity
 import com.teammacc.client.repository.ClientRepository
 import com.teammacc.client.entity.Client
+import javax.validation.Valid
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin("*", maxAge = 3600)
 @RestController
 @RequestMapping("/api")
 class ClientController(@Autowired private val clientRepository : ClientRepository){
