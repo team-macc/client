@@ -2,9 +2,9 @@ spring:
   application:
     name: client
   datasource:
-    password: root
-    url: jdbc:mysql://client-db-1-mysql/client?allowPublicKeyRetrieval=true&sslMode=DISABLED&useSSL=false&serverTimezone=UTC
-    username: root
+    url: jdbc:mysql://146.148.98.19/client?allowPublicKeyRetrieval=true&sslMode=DISABLED&useSSL=false&serverTimezone=UTC
+    username: macc
+    password: 1234qwer
   jpa:
     hibernate:
       ddl-auto: update
