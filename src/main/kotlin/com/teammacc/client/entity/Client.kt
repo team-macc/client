@@ -13,7 +13,7 @@ data class Client(
 	val id : Long = 0,
 	
 	@get: NotBlank
-	val name : String = "",
+	val username : String = "",
 	
 	@get: NotBlank
 	val password : String = "",
