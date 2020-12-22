@@ -30,12 +30,12 @@ class ClientController(@Autowired private val clientRepository : ClientRepositor
 		val username = client.username;
 		val password = client.password;
 		
-		httpPost(url = "http://localhost:8080/login/register",
+		httpPost(url = "http://sso/login/register",
 				 json = mapOf("username" to username, "password" to password))
 		
 	} 
 	
-	@GetMapping("client/{clientId}")
+	@GetMapping("/client/{clientId}")
 	fun getClientById(@PathVariable clientId : Long) : ResponseEntity<Client> =
 		
 		clientRepository.findById(clientId).map {
