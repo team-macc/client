@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
       - name: client
-        image: samuelpereiradesouza/client:2
+        image: samuelpereiradesouza/client:3
         ports:
         - containerPort: 8080
       restartPolicy: Always
