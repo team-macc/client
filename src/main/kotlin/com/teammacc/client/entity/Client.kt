@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank
 @Entity(name = "client")
 data class Client(
 	
-	@Id @GeneratedValue(strategy = GenerationType.Identity)
+	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	val id : Long = 0,
 	
 	@get: NotBlank

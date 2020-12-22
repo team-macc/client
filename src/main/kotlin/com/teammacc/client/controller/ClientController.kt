@@ -13,16 +13,16 @@ import org.springframework.web.bind.annotation.*
 
 @CrossOrigin("*", maxAge = 3600)
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/")
 class ClientController(@Autowired private val clientRepository : ClientRepository){
 	
-	@GetMapping("/client")
+	@GetMapping("/")
 	fun getAllClient() : List<Client> = clientRepository.findAll()
 	
 //	@PostMapping("/client")
 //	fun createClient(@Valid @RequestBody client : Client) : Client = clientRepository.save(client)
 	
-	@PostMapping("/client")
+	@PostMapping("/")
 	fun createClient(@Valid @RequestBody client : Client) {
 		
 		clientRepository.save(client);
@@ -30,19 +30,23 @@ class ClientController(@Autowired private val clientRepository : ClientRepositor
 		val username = client.username;
 		val password = client.password;
 		
-		httpPost(url = "http://sso/login/register",
+		httpPost(url = "http://sso/register",
 				 json = mapOf("username" to username, "password" to password))
+
+	// AMBIENTE LOCAL
+	/*	httpPost(url = "http://localhost:8082/sso/register",
+				 json = mapOf("userName" to username, "password" to password))*/
 		
 	} 
 	
-	@GetMapping("/client/{clientId}")
+	@GetMapping("/{clientId}")
 	fun getClientById(@PathVariable clientId : Long) : ResponseEntity<Client> =
 		
 		clientRepository.findById(clientId).map {
 			ResponseEntity.ok(it)
 		}.orElse(ResponseEntity.notFound().build())
 	
-	@PutMapping("/client/{clientId}")
+	@PutMapping("/{clientId}")
 	fun updateClient(@PathVariable clientId : Long, @Valid @RequestBody updateClient : Client) : ResponseEntity<Client> =
 		
 		clientRepository.findById(clientId).map{
@@ -50,7 +54,7 @@ class ClientController(@Autowired private val clientRepository : ClientRepositor
 			ResponseEntity.ok().body(clientRepository.save(newClient))
 		}.orElse(ResponseEntity.notFound().build())
 	
-	@DeleteMapping("/client/{clientId}")
+	@DeleteMapping("/{clientId}")
     fun deleteClient(@PathVariable clientId : Long) : ResponseEntity<Void> =
 		
 		clientRepository.findById(clientId).map{
