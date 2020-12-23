@@ -18,6 +18,9 @@ metadata:
   name: client
 spec:
   host: client
+  trafficPolicy:
+    tls:
+      mode: DISABLE
   subsets:
   - name: v1
     labels:

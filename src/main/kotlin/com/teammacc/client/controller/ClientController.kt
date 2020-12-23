@@ -30,8 +30,7 @@ class ClientController(@Autowired private val clientRepository : ClientRepositor
 		val username = client.username;
 		val password = client.password;
 		
-		httpPost(url = "http://sso/register",
-				 json = mapOf("userName" to username, "password" to password))
+		httpPost(url = "http://sso:8080/register", json = mapOf("userName" to username, "password" to password))
 
 	// AMBIENTE LOCAL
 	/*	httpPost(url = "http://localhost:8082/sso/register",
